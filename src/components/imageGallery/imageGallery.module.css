@@ -1,0 +1,9 @@
+.image-gallery-conteiner {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px 20px;
+}
+
+.image-galeri-item {
+  margin: 10px;
+}

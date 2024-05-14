@@ -1,0 +1,32 @@
+.searchBar-conteiner {
+  text-align: center;
+  padding: 10px;
+  background-color: brown;
+}
+
+.searchBar-search {
+  padding: 7px 50px;
+  border: 2px solid #fff;
+  border-radius: 50px;
+  color: brown;
+  background-color: rgb(243, 207, 135);
+}
+
+.searchBar-search:hover {
+  border: 2px solid brown;
+}
+
+.searchBar-button {
+  padding: 7px 15px;
+  border: 2px solid #fff;
+  border-radius: 30px;
+  color: brown;
+  background-color: rgb(243, 207, 135);
+  font-weight: 600;
+  margin-left: 15px;
+}
+.searchBar-button:hover {
+  border: 2px solid rgb(243, 207, 135);
+  color: #fff;
+  background-color: brown;
+}

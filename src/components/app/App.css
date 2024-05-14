@@ -1,0 +1,13 @@
+@import url("../searchBar/searchBar.module.css");
+@import url("../imageGallery/imageGallery.module.css");
+@import url("../errorMessage/errorMessage.module.css");
+@import url("../loadMoreBtn/loadMoreBtn.module.css");
+@import url("../imageModal/imageModal.module.css");
+
+body {
+  background-color: rgb(243, 207, 135);
+}
+
+li {
+  list-style: none;
+}
