@@ -35,7 +35,7 @@ function App() {
           return;
         }
         const resData = await fetchImages(searchInput, page);
-        setImages((prevImages: Image[]) => [...prevImages, ...resData]);
+        setImages((prevImages: unknown[]) => [...prevImages, ...resData]);
         onSearchSuccess(resData.length > 0);
       } catch (error) {
         setError(true);
@@ -54,7 +54,7 @@ function App() {
     setLoadMoreBtn(hasResults);
   };
 
-  const handleOpen = async (image: Image) => {
+  const handleOpen = async (image: Image | any) => {
     setSelectedImages(image);
     setIsOpen(true);
   };
