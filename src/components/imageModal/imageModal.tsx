@@ -1,6 +1,6 @@
-import Modal from "react-modal";
+import Modal, { Styles } from "react-modal";
 
-const customStyles = {
+const customStyles: Styles = {
   content: {
     top: "50%",
     left: "50%",
@@ -26,13 +26,13 @@ interface Image {
 interface ImageModalProps {
   isOpen: boolean;
   onRequestClose: (event: React.MouseEvent<Element, MouseEvent>) => void;
-  image: Image;
+  imageModal: Image;
 }
 
 export const ImageModal = ({
   isOpen,
   onRequestClose,
-  image,
+  imageModal,
 }: ImageModalProps) => {
   return (
     <>
@@ -41,11 +41,11 @@ export const ImageModal = ({
         isOpen={isOpen}
         onRequestClose={onRequestClose}
       >
-        {image && (
+        {imageModal && (
           <img
             className="image-modal-image"
-            src={image.urls.regular}
-            alt={image.alt_description}
+            src={imageModal.urls.regular}
+            alt={imageModal.alt_description}
           />
         )}
       </Modal>

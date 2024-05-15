@@ -9,7 +9,7 @@ import { Error } from "../errorMessage/errorMessage.js";
 import { LoadMoreBtn } from "../loadMoreBtn/loadMoreBtn.jsx";
 import { ImageModal } from "../imageModal/imageModal.jsx";
 
-interface Image {
+interface MyImage {
   id: string;
   urls: {
     small: string;
@@ -17,26 +17,15 @@ interface Image {
   alt_description: string;
 }
 
-// interface ImagesData {
-//   prevImages: {
-//     searchInput: string;
-//     page: number;
-//   };
-//   resData: {
-//     searchInput: string;
-//     page: number;
-//   };
-// }
-
 function App() {
-  const [images, setImages] = useState([]);
+  const [images, setImages] = useState<MyImage[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [isError, setError] = useState<boolean>(false);
   const [loadMoreBtn, setLoadMoreBtn] = useState<boolean>(false);
   const [page, setPage] = useState<number>(1);
   const [searchInput, setSearchInput] = useState<string>("");
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [selectedImages, setSelectedImages] = useState(null);
+  const [selectedImages, setSelectedImages] = useState<MyImage | null>(null);
 
   useEffect(() => {
     const load = async () => {
@@ -61,11 +50,11 @@ function App() {
     setPage(page + 1);
   };
 
-  const onSearchSuccess = (hasResults: boolean): void => {
+  const onSearchSuccess = (hasResults: boolean) => {
     setLoadMoreBtn(hasResults);
   };
 
-  const handleOpen = async (image: Image | any) => {
+  const handleOpen = async (image: MyImage) => {
     setSelectedImages(image);
     setIsOpen(true);
   };
@@ -95,7 +84,7 @@ function App() {
           <ImageModal
             isOpen={isOpen}
             onRequestClose={handleClose}
-            image={selectedImages}
+            imageModal={selectedImages}
           />
         )}
       </div>
