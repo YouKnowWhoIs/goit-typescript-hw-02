@@ -1,4 +1,5 @@
 import Modal, { Styles } from "react-modal";
+import { Image } from "../app/App";
 
 const customStyles: Styles = {
   content: {
@@ -15,13 +16,6 @@ const customStyles: Styles = {
     padding: "0",
   },
 };
-
-interface Image {
-  urls: {
-    regular: string;
-  };
-  alt_description: string;
-}
 
 interface ImageModalProps {
   isOpen: boolean;

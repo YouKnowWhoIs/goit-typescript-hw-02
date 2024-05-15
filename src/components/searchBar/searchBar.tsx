@@ -2,11 +2,16 @@ import { toast, Toaster } from "react-hot-toast";
 import { FormEvent } from "react";
 
 interface SearchBarPromis {
-  onSearch: (searchInput: string, onSearchSuccess: boolean) => void;
-  onSearchSuccess: boolean;
+  onSearch: (
+    searchInput: string,
+    onSearchSuccess: (hasResults: boolean) => void
+  ) => void;
+  onSearchSuccess: (hasResults: boolean) => void;
 }
 
 export const SearchBar = ({ onSearch, onSearchSuccess }: SearchBarPromis) => {
+  console.log(onSearchSuccess);
+
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = event.target as HTMLFormElement;

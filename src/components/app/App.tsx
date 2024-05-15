@@ -12,17 +12,16 @@ import { ImageModal } from "../imageModal/imageModal.jsx";
 interface MyImage {
   id: string;
   urls: {
-    regular?: string;
     small: string;
   };
   alt_description: string;
 }
 
-interface MyImageTwo {
+export interface Image {
   id: string;
   urls: {
-    regular: string;
-    small?: string;
+    small: string;
+    regular?: string;
   };
   alt_description: string;
 }
@@ -35,7 +34,7 @@ function App() {
   const [page, setPage] = useState<number>(1);
   const [searchInput, setSearchInput] = useState<string>("");
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [selectedImages, setSelectedImages] = useState<MyImageTwo | null>(null);
+  const [selectedImages, setSelectedImages] = useState<Image | null>(null);
 
   useEffect(() => {
     const load = async () => {
@@ -60,11 +59,11 @@ function App() {
     setPage(page + 1);
   };
 
-  const onSearchSuccess = (hasResults: boolean) => {
+  const onSearchSuccess: (hasResults: boolean) => void = (hasResults) => {
     setLoadMoreBtn(hasResults);
   };
 
-  const handleOpen = async (image: MyImageTwo) => {
+  const handleOpen = async (image: Image) => {
     setSelectedImages(image);
     console.log(image);
 
