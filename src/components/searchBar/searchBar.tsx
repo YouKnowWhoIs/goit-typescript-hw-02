@@ -1,4 +1,5 @@
 import { toast, Toaster } from "react-hot-toast";
+import { FormEvent } from "react";
 
 interface SearchBarPromis {
   onSearch: (searchInput: string, onSearchSuccess: boolean) => void;
@@ -6,11 +7,12 @@ interface SearchBarPromis {
 }
 
 export const SearchBar = ({ onSearch, onSearchSuccess }: SearchBarPromis) => {
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const form = event.target;
-    const searchInput = form.elements.searchInput.value;
-
+    const form = event.target as HTMLFormElement;
+    const searchInput = (
+      form.elements.namedItem("searchInput") as HTMLInputElement
+    )?.value;
     if (searchInput.trim() === "") {
       toast.error("The search field cannot be empty!");
       return;

@@ -17,14 +17,25 @@ interface Image {
   alt_description: string;
 }
 
+// interface ImagesData {
+//   prevImages: {
+//     searchInput: string;
+//     page: number;
+//   };
+//   resData: {
+//     searchInput: string;
+//     page: number;
+//   };
+// }
+
 function App() {
   const [images, setImages] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [isError, setError] = useState(false);
-  const [loadMoreBtn, setLoadMoreBtn] = useState(false);
-  const [page, setPage] = useState(1);
-  const [searchInput, setSearchInput] = useState("");
-  const [isOpen, setIsOpen] = useState(false);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [isError, setError] = useState<boolean>(false);
+  const [loadMoreBtn, setLoadMoreBtn] = useState<boolean>(false);
+  const [page, setPage] = useState<number>(1);
+  const [searchInput, setSearchInput] = useState<string>("");
+  const [isOpen, setIsOpen] = useState<boolean>(false);
   const [selectedImages, setSelectedImages] = useState(null);
 
   useEffect(() => {
@@ -35,7 +46,7 @@ function App() {
           return;
         }
         const resData = await fetchImages(searchInput, page);
-        setImages((prevImages: unknown[]) => [...prevImages, ...resData]);
+        setImages((prevImages) => [...prevImages, ...resData]);
         onSearchSuccess(resData.length > 0);
       } catch (error) {
         setError(true);
@@ -50,7 +61,7 @@ function App() {
     setPage(page + 1);
   };
 
-  const onSearchSuccess = (hasResults: boolean) => {
+  const onSearchSuccess = (hasResults: boolean): void => {
     setLoadMoreBtn(hasResults);
   };
 
