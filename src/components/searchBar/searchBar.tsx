@@ -10,8 +10,6 @@ interface SearchBarPromis {
 }
 
 export const SearchBar = ({ onSearch, onSearchSuccess }: SearchBarPromis) => {
-  console.log(onSearchSuccess);
-
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = event.target as HTMLFormElement;

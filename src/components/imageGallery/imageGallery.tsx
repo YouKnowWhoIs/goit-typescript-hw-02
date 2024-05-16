@@ -7,7 +7,6 @@ interface ImageGalleryProps {
 }
 
 export const ImageGallery = ({ images, handleOpen }: ImageGalleryProps) => {
-  console.log(images);
   return (
     <ul className="image-gallery-conteiner">
       {images.length > 0 &&
